@@ -25,34 +25,67 @@ class LogInViewController: BaseController {
     
     private var emailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Enter email"
+        label.text = "Email"
         return label
     }()
     
-    private var emailTExtField: UITextField = {
-        let field = UITextField()
+    private var emailTExtField: ChangePaddingFelds = {
+        let field = ChangePaddingFelds()
         field.backgroundColor = .white
         field.layer.cornerRadius = 10
+        field.placeholder = "Enter Email"
         return field
     }()
     
     private var passwordLabel: UILabel = {
         let label = UILabel()
-        label.text = "Enter password"
+        label.text = "Password"
         return label
     }()
     
-    private var passwordTextField: UITextField = {
-        let field = UITextField()
+    private var passwordTextField: ChangePaddingFelds = {
+        let field = ChangePaddingFelds()
         field.backgroundColor = .white
         field.layer.cornerRadius = 10
+        field.placeholder = "Enter password"
         return field
+    }()
+    
+    private var singInButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = Resourses.Colors.buttonColor
+        button.setTitle("Sing In", for: .normal)
+        button.addTarget(self , action: #selector(signInButtonTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 18
+        return button
+    }()
+    
+    private var singUpButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = Resourses.Colors.buttonColor
+        button.setTitle("Sing Up", for: .normal)
+        button.frame.size.height = 10
+        button.addTarget(self , action: #selector(signUpButtonTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 15
+        return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
             
     }
+    
+    @objc private func signInButtonTapped() {
+        let navVC = UINavigationController(rootViewController: MenuTimeTable())
+        navVC.modalPresentationStyle = .fullScreen
+        self.present(navVC, animated: true)
+    }
+    
+    @objc private func signUpButtonTapped() {
+        let signUpViewController = SingUpViewController()
+        self.present(signUpViewController, animated: true)
+    }
+    
 }
 
 extension LogInViewController {
@@ -64,6 +97,8 @@ extension LogInViewController {
         view.setupView(passwordTextField)
         view.setupView(emailLabel)
         view.setupView(passwordLabel)
+        view.setupView(singInButton)
+        view.setupView(singUpButton)
     }
     
     override func constraintViews() {
@@ -95,13 +130,25 @@ extension LogInViewController {
             passwordTextField.topAnchor.constraint(equalTo: emailTExtField.bottomAnchor, constant: 40),
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 30)
+            passwordTextField.heightAnchor.constraint(equalToConstant: 30),
+            
+            singInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 50),
+            singInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            singInButton.widthAnchor.constraint(equalToConstant: 200),
+            singInButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            singUpButton.topAnchor.constraint(equalTo: singInButton.bottomAnchor, constant: 20),
+            singUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            singUpButton.widthAnchor.constraint(equalToConstant: 140),
+            singUpButton.heightAnchor.constraint(equalToConstant: 35)
+                    
         ])
         
     }
     
     override func configureAppearance() {
         super.configureAppearance()
+        
     }
 }
 
