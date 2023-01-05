@@ -15,3 +15,14 @@ extension UIView {
     }
     
 }
+
+//MARK: - Chechout Bolds, Cool!)
+
+extension UIView {
+    func chekFonts() {
+        UIFont.familyNames.forEach ({ familyName in
+            let fontNames = UIFont.fontNames (forFamilyName: familyName)
+            print (familyName, fontNames)
+        })
+    }
+}

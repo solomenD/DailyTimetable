@@ -17,15 +17,18 @@ class LogInViewController: BaseController {
     }()
     
     private var logInTextLabel: UILabel = {
-        let lable = UILabel()
-        lable.text = Resourses.logInText
-        lable.textColor = .white
-        return lable
+        let label = UILabel()
+        label.text = Resourses.logInText
+        label.textColor = .white
+        label.font = UIFont(name: "DINAlternate-Bold", size: 17)
+        return label
     }()
     
     private var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
+        label.font = UIFont(name: "DINAlternate-Bold", size: 20)
+        label.textColor = Resourses.Colors.labelBackground
         return label
     }()
     
@@ -40,6 +43,8 @@ class LogInViewController: BaseController {
     private var passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "Password"
+        label.font = UIFont(name: "DINAlternate-Bold", size: 20)
+        label.textColor = Resourses.Colors.labelBackground
         return label
     }()
     
@@ -55,6 +60,7 @@ class LogInViewController: BaseController {
         let button = UIButton()
         button.backgroundColor = Resourses.Colors.buttonColor
         button.setTitle("Sing In", for: .normal)
+        button.titleLabel?.font = UIFont(name: "DINAlternate-Bold", size: 21)
         button.addTarget(self , action: #selector(signInButtonTapped), for: .touchUpInside)
         button.layer.cornerRadius = 18
         return button
@@ -65,6 +71,7 @@ class LogInViewController: BaseController {
         button.backgroundColor = Resourses.Colors.buttonColor
         button.setTitle("Sing Up", for: .normal)
         button.frame.size.height = 10
+        button.titleLabel?.font = UIFont(name: "DINAlternate-Bold", size: 14)
         button.addTarget(self , action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.layer.cornerRadius = 15
         return button
@@ -107,12 +114,11 @@ extension LogInViewController {
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             backgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            backgroundView.heightAnchor.constraint(equalToConstant: 30),
+            backgroundView.heightAnchor.constraint(equalToConstant: 35),
             backgroundView.widthAnchor.constraint(equalToConstant: 70),
             
-            logInTextLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 4),
-            logInTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logInTextLabel.heightAnchor.constraint(equalToConstant: 22),
+            logInTextLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            logInTextLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
             
             emailLabel.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 70),
             emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
