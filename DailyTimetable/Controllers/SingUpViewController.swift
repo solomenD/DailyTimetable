@@ -137,11 +137,7 @@ class SingUpViewController: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupViews()
-        constraintViews()
-        configureAppearance()
-        
+
     }
     
     @objc private func signInButtonTapped() {

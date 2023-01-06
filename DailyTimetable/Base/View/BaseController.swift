@@ -21,7 +21,6 @@ class BaseController: UIViewController {
 @objc extension BaseController {
     
     func setupViews() {
-        
     }
     
     func constraintViews() {

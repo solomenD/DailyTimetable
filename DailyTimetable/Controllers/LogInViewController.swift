@@ -83,9 +83,10 @@ class LogInViewController: BaseController {
     }
     
     @objc private func signInButtonTapped() {
-        let navVC = UINavigationController(rootViewController: MenuTimeTable())
-        navVC.modalPresentationStyle = .fullScreen
-        self.present(navVC, animated: true)
+        let signInViewComtroller = MenuTimeTable()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil,
+        action: nil)
+        navigationController?.pushViewController(signInViewComtroller, animated: true)
     }
     
     @objc private func signUpButtonTapped() {
