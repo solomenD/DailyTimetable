@@ -26,7 +26,7 @@ class LogInViewController: BaseController {
     
     private var emailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Email"
+        label.text = "E-mail"
         label.font = UIFont(name: "DINAlternate-Bold", size: 20)
         label.textColor = Resourses.Colors.labelBackground
         return label
@@ -36,7 +36,7 @@ class LogInViewController: BaseController {
         let field = ChangePaddingFelds()
         field.backgroundColor = .white
         field.layer.cornerRadius = 10
-        field.placeholder = "Enter Email"
+        field.placeholder = "Enter E-mail"
         return field
     }()
     
