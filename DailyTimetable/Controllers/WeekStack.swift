@@ -15,7 +15,7 @@ extension MenuTimeTable {
         private let stackView = UIStackView()
         private let button = UIButton()
         
-        func configure(with index: Int, and name: String) {
+        func configure(with index: Int, and name: String, selector: Selector) {
             
             let startOfWeek = Date().startOfWeek
             let currentDay = startOfWeek.agoForward(to: index)
@@ -30,10 +30,10 @@ extension MenuTimeTable {
             
             dateLabel.text = "\(day)"
             dateLabel.textColor = isTooday ? .white : .gray
-
-        }
-        @objc func stackButtonTapped() {
-            print("Tamed")
+            
+            button.titleLabel?.text = "23"
+            button.backgroundColor = .red
+            button.addTarget(self, action: selector, for: .touchUpInside)
         }
     }
 }
@@ -44,9 +44,9 @@ extension MenuTimeTable.WeekStack {
         
         setupView(stackView)
         
+//        stackView.addArrangedSubview(button)
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(dateLabel)
-        stackView.addArrangedSubview(button)
         
     }
     override func constraintViews() {
@@ -56,6 +56,7 @@ extension MenuTimeTable.WeekStack {
             
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
             
         ])
         
@@ -76,8 +77,6 @@ extension MenuTimeTable.WeekStack {
 
         stackView.spacing = 3
         stackView.axis = .vertical
-        
-        button.addTarget(stackView, action: #selector(stackButtonTapped), for: .touchUpInside)
 
     }
     

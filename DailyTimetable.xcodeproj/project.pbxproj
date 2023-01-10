@@ -24,6 +24,7 @@
 		67ED46EE2969959A00F9D327 /* Date + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED46ED2969959A00F9D327 /* Date + Extention.swift */; };
 		67ED46F029699A7500F9D327 /* WeekStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED46EF29699A7500F9D327 /* WeekStack.swift */; };
 		67ED46F229699F1000F9D327 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED46F129699F1000F9D327 /* BaseView.swift */; };
+		67F07360296C4872004EF7FF /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F0735F296C4871004EF7FF /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		67ED46ED2969959A00F9D327 /* Date + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extention.swift"; sourceTree = "<group>"; };
 		67ED46EF29699A7500F9D327 /* WeekStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStack.swift; sourceTree = "<group>"; };
 		67ED46F129699F1000F9D327 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		67F0735F296C4871004EF7FF /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				67ED46E12966474B00F9D327 /* SingUpViewController.swift */,
 				67ED46E329664F4700F9D327 /* MenuTimeTable.swift */,
 				67ED46EF29699A7500F9D327 /* WeekStack.swift */,
+				67F0735F296C4871004EF7FF /* AddTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67ED46E429664F4700F9D327 /* MenuTimeTable.swift in Sources */,
+				67F07360296C4872004EF7FF /* AddTaskViewController.swift in Sources */,
 				674136832963A7060088F2E5 /* LogInViewController.swift in Sources */,
 				674136962963AA5C0088F2E5 /* Resourses.swift in Sources */,
 				6741369D2963B0950088F2E5 /* UIView Extentions.swift in Sources */,

@@ -9,6 +9,12 @@ import UIKit
 
 class MenuTimeTable: BaseController {
     
+    private var tabelView: UITableView = {
+        var view = UITableView()
+        view.backgroundColor = Resourses.Colors.background
+        return view
+    }()
+    
     private var dayLable: UILabel = {
         let label = UILabel()
         label.text = "Today"
@@ -60,12 +66,14 @@ class MenuTimeTable: BaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabelView.delegate = self
+        tabelView.dataSource = self
         setNavigationBar()
     }
     
     @objc private func addTaskButtonTapped() {
-        print("addtask")
+        let addTaskViewController = AddTaskViewController()
+        navigationController?.pushViewController(addTaskViewController, animated: true)
     }
     
     private func setNavigationBar() {
@@ -97,6 +105,7 @@ extension MenuTimeTable {
         view.setupView(addTaskButton)
         view.setupView(dateLabel)
         view.setupView(stackView)
+        view.setupView(tabelView)
     }
     
     override func constraintViews() {
@@ -120,7 +129,12 @@ extension MenuTimeTable {
             stackView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 15),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            stackView.heightAnchor.constraint(equalToConstant: 47)
+            stackView.heightAnchor.constraint(equalToConstant: 47),
+            
+            tabelView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+            tabelView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tabelView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tabelView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 
             
         ])
@@ -141,9 +155,30 @@ extension MenuTimeTable {
         
         weekdays.enumerated().forEach { index, name in
             let view = WeekStack()
-            view.configure(with: index, and: name)
+            view.configure(with: index, and: name, selector: #selector(stackButtonTapped))
             stackView.addArrangedSubview(view)
+            
         }
     }
+    @objc func stackButtonTapped() {
+        print("Tamed",index)
+    }
+}
+
+extension MenuTimeTable: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "UITableViewCell")
+        cell.backgroundColor = Resourses.Colors.background
+        return cell
+    }
+    
+    
+}
+
+extension MenuTimeTable: UITableViewDelegate {
     
 }
